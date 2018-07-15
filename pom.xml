@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.simbaba</groupId>
-    <artifactId>dl4j-samples</artifactId>
+    <artifactId>dl4jsamples</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
