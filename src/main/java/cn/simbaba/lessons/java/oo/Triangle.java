@@ -10,6 +10,8 @@ package cn.simbaba.lessons.java.oo;
  */
 public class Triangle {
 
+    static double[][] points;
+
     /**
      * 这是代码块
      */
@@ -60,6 +62,18 @@ public class Triangle {
         return new double[]{2*S/L01, 2*S/L12, 2*S/L20};
     }
 
+    /**
+     * 使用points存储坐标
+     * @return
+     */
+    static double area() {
+        return area(points);
+    }
+
+    static double[] high() {
+        return high(points);
+    }
+
 
     public static void main(String[] args) {
 
@@ -69,14 +83,12 @@ public class Triangle {
                 {3, 2}   // C
         };
 
-        double a_AB = 5;
-        double h_AB = 2;
+        Triangle.points = points;
 
-        System.out.println("S1="+area(a_AB, h_AB));
-        System.out.println("S2="+area(points));
+        double S = area();
+        System.out.println("S="+area());
 
-        double[] highs = high(points);
-
+        double[] highs = high();
         System.out.printf("hAB=%f, hBC=%f, hAC=%f", highs[0],highs[1],highs[2]);
     }
 }
