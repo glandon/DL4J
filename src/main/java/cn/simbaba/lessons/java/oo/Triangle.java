@@ -11,6 +11,13 @@ package cn.simbaba.lessons.java.oo;
 public class Triangle {
 
     /**
+     * 这是代码块
+     */
+    static {
+        System.out.println("欢迎使用三角形计算");
+    }
+
+    /**
      * S=a*h/2
      * @param a
      * @param h
@@ -38,6 +45,22 @@ public class Triangle {
         return (x1*y2+x2*y3+x3*y1-x1*y3-x2*y1-x3*y2)/2;
     }
 
+    /**
+     * h = 2S/a
+     * @param points
+     * @return
+     */
+    static double[] high(double[][] points) {
+        double S = area(points);
+
+        double L01 = Math.sqrt(Math.pow(points[1][0]-points[0][0],2)+Math.pow(points[1][1]-points[0][1],2));
+        double L12 = Math.sqrt(Math.pow(points[2][0]-points[1][0],2)+Math.pow(points[2][1]-points[1][1],2));
+        double L20 = Math.sqrt(Math.pow(points[2][0]-points[0][0],2)+Math.pow(points[2][1]-points[0][1],2));
+
+        return new double[]{2*S/L01, 2*S/L12, 2*S/L20};
+    }
+
+
     public static void main(String[] args) {
 
         double[][] points = {
@@ -51,5 +74,9 @@ public class Triangle {
 
         System.out.println("S1="+area(a_AB, h_AB));
         System.out.println("S2="+area(points));
+
+        double[] highs = high(points);
+
+        System.out.printf("hAB=%f, hBC=%f, hAC=%f", highs[0],highs[1],highs[2]);
     }
 }
