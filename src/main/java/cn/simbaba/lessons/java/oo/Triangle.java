@@ -15,7 +15,7 @@ public class Triangle {
     /**
      * 这是代码块
      */
-    {
+    static {
         System.out.println("欢迎使用三角形计算");
     }
 
@@ -25,7 +25,7 @@ public class Triangle {
      * @param h
      * @return area
      */
-    double area(double a, double h) {
+    static double area(double a, double h) {
         return a*h/2;
     }
 
@@ -34,7 +34,7 @@ public class Triangle {
      * @param points
      * @return area
      */
-    double area(double[][] points) {
+    static double area(double[][] points) {
         double x1 = points[0][0];
         double y1 = points[0][1];
 
@@ -52,7 +52,7 @@ public class Triangle {
      * @param points
      * @return
      */
-    double[] high(double[][] points) {
+    static double[] high(double[][] points) {
         double S = area(points);
 
         double L01 = Math.sqrt(Math.pow(points[1][0]-points[0][0],2)+Math.pow(points[1][1]-points[0][1],2));
@@ -95,6 +95,8 @@ public class Triangle {
         Triangle t2 = new Triangle();
         t2.points = points2;
         t2.high();
+
+        System.out.printf("S2=%f", t2.area());
 
     }
 }

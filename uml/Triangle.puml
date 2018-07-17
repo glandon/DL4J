@@ -1,15 +1,15 @@
 @startuml
 
 class Triangle {
-~{static} double[] points
+~double[] points
 
 ~{static} double area(double a, double h)
 
 ~{static} double area(double[][] points)
 ~{static} double[] high(double[][] points)
 
-~{static} double area()
-~{static} double[] high()
+~double area()
+~double[] high()
 
 }
 
