@@ -10,12 +10,12 @@ package cn.simbaba.lessons.java.oo;
  */
 public class Triangle {
 
-    static double[][] points;
+    double[][] points;
 
     /**
      * 这是代码块
      */
-    static {
+    {
         System.out.println("欢迎使用三角形计算");
     }
 
@@ -25,7 +25,7 @@ public class Triangle {
      * @param h
      * @return area
      */
-    static double area(double a, double h) {
+    double area(double a, double h) {
         return a*h/2;
     }
 
@@ -34,7 +34,7 @@ public class Triangle {
      * @param points
      * @return area
      */
-    static double area(double[][] points) {
+    double area(double[][] points) {
         double x1 = points[0][0];
         double y1 = points[0][1];
 
@@ -44,7 +44,7 @@ public class Triangle {
         double x3 = points[2][0];
         double y3 = points[2][1];
 
-        return (x1*y2+x2*y3+x3*y1-x1*y3-x2*y1-x3*y2)/2;
+        return Math.abs((x1*y2+x2*y3+x3*y1-x1*y3-x2*y1-x3*y2)/2);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Triangle {
      * @param points
      * @return
      */
-    static double[] high(double[][] points) {
+    double[] high(double[][] points) {
         double S = area(points);
 
         double L01 = Math.sqrt(Math.pow(points[1][0]-points[0][0],2)+Math.pow(points[1][1]-points[0][1],2));
@@ -66,29 +66,35 @@ public class Triangle {
      * 使用points存储坐标
      * @return
      */
-    static double area() {
+    double area() {
         return area(points);
     }
 
-    static double[] high() {
+    double[] high() {
         return high(points);
     }
 
 
     public static void main(String[] args) {
 
-        double[][] points = {
+        double[][] points1 = {
                 {-1, 0}, // A
                 {4, 0},  // B
                 {3, 2}   // C
         };
 
-        Triangle.points = points;
+        Triangle t1 = new Triangle();
+        t1.points = points1;
 
-        double S = area();
-        System.out.println("S="+area());
+        double[][] points2 = {
+                {0, 0}, // A
+                {0, 4},  // B
+                {3, 0}   // C
+        };
 
-        double[] highs = high();
-        System.out.printf("hAB=%f, hBC=%f, hAC=%f", highs[0],highs[1],highs[2]);
+        Triangle t2 = new Triangle();
+        t2.points = points2;
+        t2.high();
+
     }
 }

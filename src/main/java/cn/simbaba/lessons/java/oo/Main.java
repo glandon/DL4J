@@ -1,7 +1,5 @@
 package cn.simbaba.lessons.java.oo;
 
-import static cn.simbaba.lessons.java.oo.Triangle.area;
-import static cn.simbaba.lessons.java.oo.Triangle.high;
 
 /**
  * 面向对象实例5.2
@@ -19,14 +17,13 @@ public class Main {
                 {3, 2}   // C
         };
 
-        double a_AB = 5;
-        double h_AB = 2;
+        Triangle t1 = new Triangle();
+        t1.points = points;
 
-        System.out.println("S1="+ area(a_AB, h_AB));
-        System.out.println("S2="+area(points));
+        double S = t1.area();
+        System.out.println("S="+t1.area());
 
-        double[] highs = high(points);
-
+        double[] highs = t1.high();
         System.out.printf("hAB=%f, hBC=%f, hAC=%f", highs[0],highs[1],highs[2]);
     }
 }
